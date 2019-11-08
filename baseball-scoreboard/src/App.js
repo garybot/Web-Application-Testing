@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard.js';
 import Display from './components/Display.js';
 
 function App() {
-  const [atBatStats, setAtBatStats] = useState({'strike': 0, 'ball': 0, 'foul': 0, 'hit': 0});
+  const [atBatStats, setAtBatStats] = useState({'strike': 0, 'ball': 0});
   return (
     <div className="App">
       <Dashboard atBatStats={atBatStats} setAtBatStats={setAtBatStats}/>

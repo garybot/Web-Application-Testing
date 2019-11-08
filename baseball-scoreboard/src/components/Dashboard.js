@@ -11,19 +11,27 @@ const Dashboard = (props) => {
     console.log(atBatStats);
   }, [atBatStats, setAtBatStats])
 
-  const addStrike = () => {
+  const handleStrike = () => {
     setAtBatStats({...atBatStats, 'strike': atBatStats.strike + 1});
   }
 
-  const addBall = () => {
+  const handleBall = () => {
     setAtBatStats({...atBatStats, 'ball': atBatStats.ball + 1});
+  }
+  const handleFoul = () => {
+    return atBatStats.strike < 2 ? handleStrike() : null;
+  }
+  const handleHit = () => {
+    setAtBatStats({'strike': 0, 'ball': 0})
   }
   
   return (
     <div>
       <h2>Dashboard</h2>
-      <button onClick={addStrike}>Strike</button>
-      <button onClick={addBall}>Ball</button>
+      <button onClick={handleStrike}>Strike</button>
+      <button onClick={handleBall}>Ball</button>
+      <button onClick={handleFoul}>Foul</button>
+      <button onClick={handleHit}>Hit</button>
     </div>
   )
 }
