@@ -1,24 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+import Dashboard from './components/Dashboard.js';
+import Display from './components/Display.js';
+
 function App() {
+  const [atBatStats, setAtBatStats] = useState({'strike': 0, 'ball': 0, 'foul': 0, 'hit': 0});
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Dashboard atBatStats={atBatStats} setAtBatStats={setAtBatStats}/>
+      <Display atBatStats={atBatStats}/>
     </div>
   );
 }
